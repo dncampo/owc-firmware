@@ -197,20 +197,20 @@ typedef enum {
   #define PIN_SR_OE          1    // shift register output enable pin
   
   // regular 16x2 LCD pin defines
-  #define PIN_LCD_RS        19    // LCD rs pin
-  #define PIN_LCD_EN        18    // LCD enable pin
-  #define PIN_LCD_D4        20    // LCD d4 pin
-  #define PIN_LCD_D5        21    // LCD d5 pin
-  #define PIN_LCD_D6        22    // LCD d6 pin
-  #define PIN_LCD_D7        23    // LCD d7 pin
-  #define PIN_LCD_BACKLIGHT 12    // LCD backlight pin
-  #define PIN_LCD_CONTRAST  13    // LCD contrast pin
+  #define PIN_LCD_RS        12    // LCD rs pin
+  #define PIN_LCD_EN        13    // LCD enable pin
+  #define PIN_LCD_D4        8    // LCD d4 pin
+  #define PIN_LCD_D5        9    // LCD d5 pin
+  #define PIN_LCD_D6        10    // LCD d6 pin
+  #define PIN_LCD_D7        11    // LCD d7 pin
+  #define PIN_LCD_BACKLIGHT 42    // LCD backlight pin
+  #define PIN_LCD_CONTRAST  43    // LCD contrast pin
   
   // DC controller pin defines
   #define PIN_BOOST         20    // booster pin
   #define PIN_BOOST_EN      23    // boost voltage enable pin
   
-  #define PIN_ETHER_CS       4    // Ethernet controller chip select pin
+  #define PIN_ETHER_CS       53    // Ethernet controller chip select pin
   #define PIN_SD_CS          0    // SD card chip select pin
   #define PIN_RAINSENSOR    11    // rain sensor is connected to pin D3
   #define PIN_EXP_SENSE      4    // expansion board sensing pin (A4)

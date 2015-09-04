@@ -106,8 +106,8 @@
 #define ADDR_NVM_OPTIONS       (ADDR_NVM_STNSEQ+(MAX_EXT_BOARDS+1))  // options
 
 /** Default password, location string, weather key, script urls */
-#define DEFAULT_PASSWORD          "opendoor"
-#define DEFAULT_LOCATION          "Boston,MA"
+#define DEFAULT_PASSWORD          "admin"
+#define DEFAULT_LOCATION          "Buenos Aires, AR"
 #define DEFAULT_WEATHER_KEY       ""
 #define DEFAULT_JAVASCRIPT_URL    "https://ui.opensprinkler.com/js"
 #define WEATHER_SCRIPT_HOST       "weather.opensprinkler.com"

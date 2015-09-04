@@ -50,6 +50,12 @@ ulong OpenSprinkler::network_lasttime;
 ulong OpenSprinkler::external_ip;
 byte OpenSprinkler::water_percent_avg;
 
+#ifdef MOD_DISCRETE //<MOD> ===== Digital Outputs
+int OpenSprinkler::station_pins[16] = {
+  PIN_STN_S01, PIN_STN_S02, PIN_STN_S03, PIN_STN_S04, PIN_STN_S05, PIN_STN_S06, PIN_STN_S07, PIN_STN_S08,
+  PIN_STN_S09, PIN_STN_S10, PIN_STN_S11, PIN_STN_S12, PIN_STN_S13, PIN_STN_S14, PIN_STN_S15, PIN_STN_S16};
+#endif
+
 char tmp_buffer[TMP_BUFFER_SIZE+1];       // scratch buffer
 
 #if defined(ARDUINO)
@@ -373,33 +379,44 @@ void OpenSprinkler::lcd_start() {
 
 void OpenSprinkler::begin() {
 
+#ifdef MOD_DISCRETE //<MOD> ===== Digital Outputs
+  // initialize the Digital IO pins as outputs:
+  for (int i = 0; i < (PIN_EXT_BOARDS * 8); i++)
+  {
+    pinMode(station_pins[i], OUTPUT);
+  }
+#else
   // shift register setup
+  pinMode(PIN_SR_LATCH, OUTPUT);
   pinMode(PIN_SR_OE, OUTPUT);
+  pinMode(PIN_SR_CLOCK, OUTPUT);
+  pinMode(PIN_SR_DATA,  OUTPUT);
+
+  digitalWrite(PIN_SR_LATCH, HIGH);
   // pull shift register OE high to disable output
   digitalWrite(PIN_SR_OE, HIGH);
-  pinMode(PIN_SR_LATCH, OUTPUT);
-  digitalWrite(PIN_SR_LATCH, HIGH);
-
-  pinMode(PIN_SR_CLOCK, OUTPUT);
-  
-#if defined(OSPI)
-  pin_sr_data = PIN_SR_DATA;
-  // detect RPi revision
-  unsigned int rev = detect_rpi_rev();
-  if (rev==0x0002 || rev==0x0003) 
-    pin_sr_data = PIN_SR_DATA_ALT;
-  // if this is revision 1, use PIN_SR_DATA_ALT
-  pinMode(pin_sr_data, OUTPUT);
-#else
-  pinMode(PIN_SR_DATA,  OUTPUT);
 #endif
 
 	// Reset all stations
   clear_all_station_bits();
   apply_all_station_bits();
 
+#ifndef MOD_DISCRETE //<MOD> ===== Digital Outputs
+	#if defined(OSPI)
+		pin_sr_data = PIN_SR_DATA;
+		// detect RPi revision
+		unsigned int rev = detect_rpi_rev();
+		if (rev==0x0002 || rev==0x0003)
+		  pin_sr_data = PIN_SR_DATA_ALT;
+		// if this is revision 1, use PIN_SR_DATA_ALT
+		pinMode(pin_sr_data, OUTPUT);
+	#else
+		pinMode(PIN_SR_DATA,  OUTPUT);
+	#endif
+
   // pull shift register OE low to enable output
   digitalWrite(PIN_SR_OE, LOW);
+#endif
 
   // Rain sensor port set up
   pinMode(PIN_RAINSENSOR, INPUT);
@@ -543,6 +560,30 @@ void OpenSprinkler::begin() {
 // Apply all station bits
 // !!! This will activate/deactivate valves !!!
 void OpenSprinkler::apply_all_station_bits() {
+
+#ifdef MOD_DISCRETE //<MOD> ===== Digital Outputs
+  byte bid, s;
+  byte bitvalue;
+
+  // Shift out all station bit values
+  // from the highest bit to the lowest
+  for(bid = 0; bid <= MAX_EXT_BOARDS; bid++)
+  {
+    bitvalue = 0;
+    if (status.enabled && (!status.rain_delayed) && !(options[OPTION_USE_RAINSENSOR].value && status.rain_sensed))
+      bitvalue = station_bits[bid];
+
+    // Check that we're switching discretes within the range defined
+    if( bid < PIN_EXT_BOARDS)
+    {
+      for(s = 0; s < 8; s++)
+      {
+        digitalWrite(station_pins[(bid*8)+s], (bitvalue & ((byte)1<<(s))) ? HIGH : LOW );
+      }
+    }
+  }
+#else
+
   digitalWrite(PIN_SR_LATCH, LOW);
   byte bid, s, sbits;
 
@@ -602,6 +643,7 @@ void OpenSprinkler::apply_all_station_bits() {
   #else
   digitalWrite(PIN_SR_LATCH, HIGH);
   #endif
+#endif
 }
 
 void OpenSprinkler::rainsensor_status() {

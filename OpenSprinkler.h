@@ -76,6 +76,9 @@ struct ConStatus {
 
 class OpenSprinkler {
 public:
+#ifdef MOD_DISCRETE //<MOD> ===== Digital Outputs
+  static int station_pins[];
+#endif
 
   // data members
 #if defined(ARDUINO)

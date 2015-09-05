@@ -21,8 +21,12 @@
  * <http://www.gnu.org/licenses/>. 
  */
 
+#include "lang.h"
+
 #ifndef _DEFINES_H
 #define _DEFINES_H
+
+#define LANG_ES 		1 //spanish language
 
 /** Firmware version, hardware version, and maximal values */
 #define OS_FW_VERSION  215  // Firmware version: 215 means 2.1.5

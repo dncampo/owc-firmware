@@ -65,7 +65,12 @@
 
 	#define 	LANG_DISABLED		"-Deshabilitado!-"
 	
-	
+	#define 	LANG_OWC_IP			" (owcip)"
+	#define		LANG_GW_IP			" (gwip)"
+	#define		LANG_RUN_A_PROGRAM	"Ejecutar Progra:"
+	#define		LANG_PRES_B3_LIST	"Pres B3 p/listar"
+	#define		LANG_PRES_B3_START	"Pres B3 p/inicia"
+	#define		LANG_NTP_SYNCING	"Sincroniz NTP..."	
 
 
 #else
@@ -134,6 +139,10 @@
 
 	#define 	LANG_DISABLED	"-Disabled!-"
 	
-
-
+	#define 	LANG_OWC_IP			" (owcip)"
+	#define		LANG_GW_IP			" (gwip)"
+	#define		LANG_RUN_A_PROGRAM	"Run a Program:"
+	#define		LANG_PRES_B3_LIST	"Click B3 to list"
+	#define		LANG_PRES_B3_START	"Hold B3 to start"
+	#define		LANG_NTP_SYNCING	"NTP Syncing..."
 #endif

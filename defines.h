@@ -27,6 +27,7 @@
 #define _DEFINES_H
 
 #define LANG_ES 		1 //spanish language
+#define MOD_DISCRETE // Use one pin per station instead of using shitf registers
 
 /** Firmware version, hardware version, and maximal values */
 #define OS_FW_VERSION  215  // Firmware version: 215 means 2.1.5
@@ -188,17 +189,44 @@ typedef enum {
     #endif
   #endif
 
+  #ifdef MOD_DISCRETE //<MOD> ===== Digital Outputs
+    #define PIN_EXT_BOARDS      2   // this defines the total number of discrete
+                                    // digital IO pins used to control watering stations.
+                                    // There are 8 stations per extender board, that MUST have
+                                    // PIN_EXT_BOARDS x 8  pins defined below (otherwise you'll
+                                    // get out of range issues with the array of pins defined
+                                    // in OpenSprinklerGen2.cpp)
+
+    #define PIN_STN_S01        22   // Use these pins when switching relays
+    #define PIN_STN_S02        23   // without shift register i.e.
+    #define PIN_STN_S03        24   // control signal is driven directly from
+    #define PIN_STN_S04        25   // the arduino digital output pins
+    #define PIN_STN_S05        26
+    #define PIN_STN_S06        27
+    #define PIN_STN_S07        28
+    #define PIN_STN_S08        29
+    #define PIN_STN_S09        30
+    #define PIN_STN_S10        31
+    #define PIN_STN_S11        32
+    #define PIN_STN_S12        33
+    #define PIN_STN_S13        34
+    #define PIN_STN_S14        35
+    #define PIN_STN_S15        36
+    #define PIN_STN_S16        37
+  #else
+    #define PIN_SR_LATCH       3    // shift register latch pin
+    #define PIN_SR_DATA       21    // shift register data pin
+    #define PIN_SR_CLOCK      22    // shift register clock pin
+    #define PIN_SR_OE          1    // shift register output enable pin
+  #endif
+
   // hardware pins
-  #define PIN_BUTTON_1      31    // button 1
-  #define PIN_BUTTON_2      30    // button 2
-  #define PIN_BUTTON_3      29    // button 3 
-  #define PIN_RF_DATA       28    // RF data pin 
+  #define PIN_BUTTON_1      40    // button 1
+  #define PIN_BUTTON_2      41    // button 2
+  #define PIN_BUTTON_3      42    // button 3
+  #define PIN_RF_DATA       43    // RF data pin
   #define PORT_RF        PORTA
   #define PINX_RF        PINA3
-  #define PIN_SR_LATCH       3    // shift register latch pin
-  #define PIN_SR_DATA       21    // shift register data pin
-  #define PIN_SR_CLOCK      22    // shift register clock pin
-  #define PIN_SR_OE          1    // shift register output enable pin
   
   // regular 16x2 LCD pin defines
   #define PIN_LCD_RS        12    // LCD rs pin
@@ -207,8 +235,8 @@ typedef enum {
   #define PIN_LCD_D5        9    // LCD d5 pin
   #define PIN_LCD_D6        10    // LCD d6 pin
   #define PIN_LCD_D7        11    // LCD d7 pin
-  #define PIN_LCD_BACKLIGHT 42    // LCD backlight pin
-  #define PIN_LCD_CONTRAST  43    // LCD contrast pin
+  #define PIN_LCD_BACKLIGHT 44    // LCD backlight pin
+  #define PIN_LCD_CONTRAST  45    // LCD contrast pin
   
   // DC controller pin defines
   #define PIN_BOOST         20    // booster pin

@@ -174,7 +174,7 @@ void ui_state_machine() {
           os.lcd_print_pgm(PSTR(". "));
           os.lcd.print(prog.name);
         } else {
-          os.lcd_print_line_clear_pgm(PSTR("0. Test (1 min)"), 1);
+          os.lcd_print_line_clear_pgm(PSTR(LANG_TEST_PROG), 1);
         }
       }
     }

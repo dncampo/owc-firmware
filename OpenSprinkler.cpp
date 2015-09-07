@@ -1103,9 +1103,15 @@ void OpenSprinkler::lcd_print_time(time_t t)
   lcd_print_pgm(PSTR("  "));
   lcd_print_pgm(days_str[weekday_today()]);
   lcd_print_pgm(PSTR(" "));
-  lcd_print_2digit(month(t));
-  lcd_print_pgm(PSTR("-"));
+#ifdef LANG_SP
   lcd_print_2digit(day(t));
+  lcd_print_pgm(PSTR(LANG_DATE_SEPARATOR));
+  lcd_print_2digit(month(t));
+#else  
+  lcd_print_2digit(month(t));
+  lcd_print_pgm(PSTR(LANG_DATE_SEPARATOR));
+  lcd_print_2digit(day(t));
+#endif  
 }
 
 /** print ip address */
@@ -1134,7 +1140,13 @@ void OpenSprinkler::lcd_print_mac(const byte *mac) {
 void OpenSprinkler::lcd_print_station(byte line, char c) {
   lcd.setCursor(0, line);
   if (status.display_board == 0) {
-    lcd_print_pgm(PSTR("MC:"));  // Master controller is display as 'MC'
+
+#ifdef LANG_SP
+    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Controlador Maestro se muestra como 'CM'
+#else	  
+    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Master controller is display as 'MC'
+#endif
+    
   }
   else {
     lcd_print_pgm(PSTR("E"));

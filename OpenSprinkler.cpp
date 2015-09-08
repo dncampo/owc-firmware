@@ -1103,7 +1103,7 @@ void OpenSprinkler::lcd_print_time(time_t t)
   lcd_print_pgm(PSTR("  "));
   lcd_print_pgm(days_str[weekday_today()]);
   lcd_print_pgm(PSTR(" "));
-#ifdef LANG_SP
+#ifdef LANG_ES
   lcd_print_2digit(day(t));
   lcd_print_pgm(PSTR(LANG_DATE_SEPARATOR));
   lcd_print_2digit(month(t));
@@ -1139,14 +1139,8 @@ void OpenSprinkler::lcd_print_mac(const byte *mac) {
 /** print station bits */
 void OpenSprinkler::lcd_print_station(byte line, char c) {
   lcd.setCursor(0, line);
-  if (status.display_board == 0) {
-
-#ifdef LANG_SP
-    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Controlador Maestro se muestra como 'CM'
-#else	  
-    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Master controller is display as 'MC'
-#endif
-    
+  if (status.display_board == 0) {  
+    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Master controller is display as LANG_MASTER_CONT shows   
   }
   else {
     lcd_print_pgm(PSTR("E"));

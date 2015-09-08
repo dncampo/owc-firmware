@@ -105,7 +105,7 @@ void ui_state_machine() {
         } else if (digitalRead(PIN_BUTTON_2)==0) { // if B2 is pressed while holding B1, display gateway IP
           os.lcd_print_ip(ether.gwip, 0);
           os.lcd.setCursor(0, 1);
-          os.lcd_print_pgm(PSTR("(gwip)"));
+          os.lcd_print_pgm(PSTR(LANG_GW_IP));
           ui_state = UI_STATE_DISP_IP;
         } else {
           reset_all_stations();
@@ -115,7 +115,7 @@ void ui_state_machine() {
         os.lcd.setCursor(0, 1);
         os.lcd_print_pgm(PSTR(":"));
         os.lcd.print(ether.hisport);
-        os.lcd_print_pgm(PSTR(" (osip)"));
+        os.lcd_print_pgm(PSTR(LANG_OWC_IP));
         ui_state = UI_STATE_DISP_IP;
       }
       break;
@@ -143,8 +143,8 @@ void ui_state_machine() {
       break;
     case BUTTON_3:
       if (button & BUTTON_FLAG_HOLD) {  // holding B3: go to main menu
-        os.lcd_print_line_clear_pgm(PSTR("Run a Program:"), 0);
-        os.lcd_print_line_clear_pgm(PSTR("Click B3 to list"), 1);
+        os.lcd_print_line_clear_pgm(PSTR(LANG_RUN_A_PROGRAM), 0);
+        os.lcd_print_line_clear_pgm(PSTR(LANG_PRES_B3_LIST), 1);
         ui_state = UI_STATE_RUNPROG;
       } else {  // clicking B3: switch board display (cycle through master and all extension boards)
         os.status.display_board = (os.status.display_board + 1) % (os.nboards);
@@ -164,7 +164,7 @@ void ui_state_machine() {
         ui_state = UI_STATE_DEFAULT;
       } else {
         ui_state_runprog = (ui_state_runprog+1) % (pd.nprograms+1);
-        os.lcd_print_line_clear_pgm(PSTR("Hold B3 to start"), 0);
+        os.lcd_print_line_clear_pgm(PSTR(LANG_PRES_B3_START), 0);
         if(ui_state_runprog > 0) {
           ProgramStruct prog;
           pd.read(ui_state_runprog-1, &prog);
@@ -174,7 +174,7 @@ void ui_state_machine() {
           os.lcd_print_pgm(PSTR(". "));
           os.lcd.print(prog.name);
         } else {
-          os.lcd_print_line_clear_pgm(PSTR("0. Test (1 min)"), 1);
+          os.lcd_print_line_clear_pgm(PSTR(LANG_TEST_PROG), 1);
         }
       }
     }
@@ -1005,7 +1005,7 @@ void perform_ntp_sync() {
   if (!os.ntpsync_lasttime || (os.now_tz() > os.ntpsync_lasttime+NTP_SYNC_TIMEOUT)) {
     os.ntpsync_lasttime = os.now_tz();
     if (!ui_state) {
-      os.lcd_print_line_clear_pgm(PSTR("NTP Syncing..."),1);
+      os.lcd_print_line_clear_pgm(PSTR(LANG_NTP_SYNCING),1);
     }
     ulong t = getNtpTime();
     if (t>0) {

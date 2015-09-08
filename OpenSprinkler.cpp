@@ -120,47 +120,47 @@ static prog_char _json_fwm[]  PROGMEM = "fwm";
 static prog_char _json_reset[] PROGMEM = "reset";
 
 /** Option names */
-static prog_char _str_fwv [] PROGMEM = "FW:";
-static prog_char _str_tz  [] PROGMEM = "TZone:";
-static prog_char _str_ntp [] PROGMEM = "NTP?";
-static prog_char _str_dhcp[] PROGMEM = "DHCP?";
-static prog_char _str_ip1 [] PROGMEM = "OS.ip1:";
-static prog_char _str_ip2 [] PROGMEM = ".ip2:";
-static prog_char _str_ip3 [] PROGMEM = ".ip3:";
-static prog_char _str_ip4 [] PROGMEM = ".ip4:";
-static prog_char _str_gw1 [] PROGMEM = "GW.ip1:";
-static prog_char _str_gw2 [] PROGMEM = ".ip2:";
-static prog_char _str_gw3 [] PROGMEM = ".ip3:";
-static prog_char _str_gw4 [] PROGMEM = ".ip4:";
-static prog_char _str_hp0 [] PROGMEM = "Port:";
+static prog_char _str_fwv [] PROGMEM = LANG_FIRMWARE_VER;
+static prog_char _str_tz  [] PROGMEM = LANG_TIME_ZONE;
+static prog_char _str_ntp [] PROGMEM = LANG_ENA_NTP_SYNC;
+static prog_char _str_dhcp[] PROGMEM = LANG_ENA_DHCP;
+static prog_char _str_ip1 [] PROGMEM = LANG_STA_IP1;
+static prog_char _str_ip2 [] PROGMEM = LANG_STA_IP2;
+static prog_char _str_ip3 [] PROGMEM = LANG_STA_IP3;
+static prog_char _str_ip4 [] PROGMEM = LANG_STA_IP4;
+static prog_char _str_gw1 [] PROGMEM = LANG_GTW_IP1;
+static prog_char _str_gw2 [] PROGMEM = LANG_GTW_IP2;
+static prog_char _str_gw3 [] PROGMEM = LANG_GTW_IP3;
+static prog_char _str_gw4 [] PROGMEM = LANG_GTW_IP4;
+static prog_char _str_hp0 [] PROGMEM = LANG_HTTP_PORT;
 static prog_char _str_hp1 [] PROGMEM = "";
-static prog_char _str_hwv [] PROGMEM = "HW: ";
-static prog_char _str_ext [] PROGMEM = "Exp. board:";
-static prog_char _str_sdt [] PROGMEM = "Stn delay:";
-static prog_char _str_mas [] PROGMEM = "Mas1:";
-static prog_char _str_mton[] PROGMEM = "Mas1  on adj:";
-static prog_char _str_mtof[] PROGMEM = "Mas1 off adj:";
-static prog_char _str_urs [] PROGMEM = "Rain sensor:";
-static prog_char _str_rso [] PROGMEM = "Normally open?";
-static prog_char _str_wl  [] PROGMEM = "% Watering:";
-static prog_char _str_den [] PROGMEM = "Dev. enable?";
-static prog_char _str_ipas[] PROGMEM = "Ign pwd?";
-static prog_char _str_devid[]PROGMEM = "Dev. ID:";
-static prog_char _str_con [] PROGMEM = "LCD con.:";
-static prog_char _str_lit [] PROGMEM = "LCD lit.:";
-static prog_char _str_dim [] PROGMEM = "LCD dim.:";
-static prog_char _str_bst [] PROGMEM = "Boost:";
-static prog_char _str_uwt [] PROGMEM = "Use weather?";
-static prog_char _str_ntp1[] PROGMEM = "NTP.ip1:";
-static prog_char _str_ntp2[] PROGMEM = ".ip2:";
-static prog_char _str_ntp3[] PROGMEM = ".ip3:";
-static prog_char _str_ntp4[] PROGMEM = ".ip4:";
-static prog_char _str_log [] PROGMEM = "Log?";
-static prog_char _str_mas2[] PROGMEM = "Mas2:";
-static prog_char _str_mton2[]PROGMEM = "Mas2  on adj:";
-static prog_char _str_mtof2[]PROGMEM = "Mas2 off adj:";
-static prog_char _str_fwm[]  PROGMEM = "FWm:";
-static prog_char _str_reset[] PROGMEM = "Reset all?";
+static prog_char _str_hwv [] PROGMEM = LANG_HRW_VER;
+static prog_char _str_ext [] PROGMEM = LANG_NUM_EXP_BOARD;
+static prog_char _str_sdt [] PROGMEM = LANG_STN_DELAY;
+static prog_char _str_mas [] PROGMEM = LANG_MASTER_1;
+static prog_char _str_mton[] PROGMEM = LANG_MASTER_1_ON;
+static prog_char _str_mtof[] PROGMEM = LANG_MASTER_1_OFF;
+static prog_char _str_urs [] PROGMEM = LANG_RAIN_SENSOR;
+static prog_char _str_rso [] PROGMEM = LANG_NORM_OPEN;
+static prog_char _str_wl  [] PROGMEM = LANG_WAT_LEVEL;
+static prog_char _str_den [] PROGMEM = LANG_DEV_ENA;
+static prog_char _str_ipas[] PROGMEM = LANG_IGN_PWD;
+static prog_char _str_devid[]PROGMEM = LANG_DEV_ID;
+static prog_char _str_con [] PROGMEM = LANG_LCD_CON;
+static prog_char _str_lit [] PROGMEM = LANG_LCD_BRI;
+static prog_char _str_dim [] PROGMEM = LANG_LCD_DIM;
+static prog_char _str_bst [] PROGMEM = LANG_DC_BOOST_TIME;
+static prog_char _str_uwt [] PROGMEM = LANG_WEATHER_ALGO;
+static prog_char _str_ntp1[] PROGMEM = LANG_NTP_SERV_IP1;
+static prog_char _str_ntp2[] PROGMEM = LANG_NTP_SERV_IP2;
+static prog_char _str_ntp3[] PROGMEM = LANG_NTP_SERV_IP3;
+static prog_char _str_ntp4[] PROGMEM = LANG_NTP_SERV_IP4;
+static prog_char _str_log [] PROGMEM = LANG_ENA_LOGGING;
+static prog_char _str_mas2[] PROGMEM = LANG_MASTER_2;
+static prog_char _str_mton2[]PROGMEM = LANG_MASTER_2_ON;
+static prog_char _str_mtof2[]PROGMEM = LANG_MASTER_2_OFF;
+static prog_char _str_fwm[]  PROGMEM = LANG_FIRMWARE_MIN;
+static prog_char _str_reset[] PROGMEM = LANG_FAC_RESET;
 
 OptionStruct OpenSprinkler::options[NUM_OPTIONS] = {
   {OS_FW_VERSION, 0, _str_fwv, _json_fwv}, // firmware version
@@ -213,13 +213,13 @@ OptionStruct OpenSprinkler::options[NUM_OPTIONS] = {
 };
 
 /** Weekday display strings */
-static prog_char str_day0[] PROGMEM = "Mon";
-static prog_char str_day1[] PROGMEM = "Tue";
-static prog_char str_day2[] PROGMEM = "Wed";
-static prog_char str_day3[] PROGMEM = "Thu";
-static prog_char str_day4[] PROGMEM = "Fri";
-static prog_char str_day5[] PROGMEM = "Sat";
-static prog_char str_day6[] PROGMEM = "Sun";
+static prog_char str_day0[] PROGMEM = LANG_MONDAY;
+static prog_char str_day1[] PROGMEM = LANG_TUESDAY;
+static prog_char str_day2[] PROGMEM = LANG_WEDNESDAY;
+static prog_char str_day3[] PROGMEM = LANG_THURSDAY;
+static prog_char str_day4[] PROGMEM = LANG_FRIDAY;
+static prog_char str_day5[] PROGMEM = LANG_SATURDAY;
+static prog_char str_day6[] PROGMEM = LANG_SUNDAY;
 
 prog_char* days_str[7] = {
   str_day0,
@@ -263,7 +263,7 @@ void(* resetFunc) (void) = 0; // AVR software reset function
 /** Initialize network with the given mac address and http port */
 byte OpenSprinkler::start_network() {
 
-  lcd_print_line_clear_pgm(PSTR("Connecting..."), 1);
+  lcd_print_line_clear_pgm(PSTR(LANG_CONNECTING), 1);
 
   network_lasttime = now();
 
@@ -866,8 +866,8 @@ void OpenSprinkler::options_setup() {
   //if (curr_ver<100) curr_ver = curr_ver*10; // adding a default 0 if version number is the old type
   if (curr_ver != OS_FW_VERSION || nvm_read_byte((byte*)(ADDR_NVM_OPTIONS+OPTION_RESET))==0xAA)  {
 #if defined(ARDUINO)
-    lcd_print_line_clear_pgm(PSTR("Resetting..."), 0);
-    lcd_print_line_clear_pgm(PSTR("Please Wait..."), 1);
+    lcd_print_line_clear_pgm(PSTR(LANG_RESETTING), 0);
+    lcd_print_line_clear_pgm(PSTR(LANG_PLS_WAIT), 1);
 #else
     DEBUG_PRINT("Resetting Options...");
 #endif
@@ -958,10 +958,10 @@ void OpenSprinkler::options_setup() {
 
 	case BUTTON_3:
   	// if BUTTON_3 is pressed during startup, enter Setup option mode
-    lcd_print_line_clear_pgm(PSTR("==Set Options=="), 0);
+    lcd_print_line_clear_pgm(PSTR(LANG_SET_OPTS), 0);
     delay(DISPLAY_MSG_MS);
     lcd_print_line_clear_pgm(PSTR("B1/B2:+/-, B3:->"), 0);
-    lcd_print_line_clear_pgm(PSTR("Hold B3 to save"), 1);
+    lcd_print_line_clear_pgm(PSTR(LANG_HOLD_B3_SAVE), 1);
     do {
       button = button_read(BUTTON_WAIT_NONE);
     } while (!(button & BUTTON_FLAG_DOWN));
@@ -979,7 +979,7 @@ void OpenSprinkler::options_setup() {
   
   if (!button) {
     // flash screen
-    lcd_print_line_clear_pgm(PSTR(" OpenSprinkler"),0);
+    lcd_print_line_clear_pgm(PSTR(LANG_BRAND),0);
     lcd.setCursor(2, 1);
     lcd_print_pgm(PSTR("HW v"));
     byte hwv = options[OPTION_HW_VERSION].value;
@@ -1103,9 +1103,15 @@ void OpenSprinkler::lcd_print_time(time_t t)
   lcd_print_pgm(PSTR("  "));
   lcd_print_pgm(days_str[weekday_today()]);
   lcd_print_pgm(PSTR(" "));
-  lcd_print_2digit(month(t));
-  lcd_print_pgm(PSTR("-"));
+#ifdef LANG_SP
   lcd_print_2digit(day(t));
+  lcd_print_pgm(PSTR(LANG_DATE_SEPARATOR));
+  lcd_print_2digit(month(t));
+#else  
+  lcd_print_2digit(month(t));
+  lcd_print_pgm(PSTR(LANG_DATE_SEPARATOR));
+  lcd_print_2digit(day(t));
+#endif  
 }
 
 /** print ip address */
@@ -1134,7 +1140,13 @@ void OpenSprinkler::lcd_print_mac(const byte *mac) {
 void OpenSprinkler::lcd_print_station(byte line, char c) {
   lcd.setCursor(0, line);
   if (status.display_board == 0) {
-    lcd_print_pgm(PSTR("MC:"));  // Master controller is display as 'MC'
+
+#ifdef LANG_SP
+    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Controlador Maestro se muestra como 'CM'
+#else	  
+    lcd_print_pgm(PSTR(LANG_MASTER_CONT));  // Master controller is display as 'MC'
+#endif
+    
   }
   else {
     lcd_print_pgm(PSTR("E"));
@@ -1143,7 +1155,7 @@ void OpenSprinkler::lcd_print_station(byte line, char c) {
   }
 
   if (!status.enabled) {
-  	lcd_print_line_clear_pgm(PSTR("-Disabled!-"), 1);
+  	lcd_print_line_clear_pgm(PSTR(LANG_DISABLED), 1);
   } else {
 	  byte bitvalue = station_bits[status.display_board];
 	  for (byte s=0; s<8; s++) {
@@ -1250,14 +1262,14 @@ void OpenSprinkler::lcd_print_option(int i) {
   default:
     // if this is a boolean option
     if (options[i].max==1)
-      lcd_print_pgm(options[i].value ? PSTR("Yes") : PSTR("No"));
+      lcd_print_pgm(options[i].value ? PSTR(LANG_YES) : PSTR(LANG_NO));
     else
       lcd.print((int)options[i].value);
     break;
   }
   if (i==OPTION_WATER_PERCENTAGE)  lcd_print_pgm(PSTR("%"));
   else if (i==OPTION_MASTER_ON_ADJ || i==OPTION_MASTER_OFF_ADJ || i==OPTION_MASTER_ON_ADJ_2 || i==OPTION_MASTER_OFF_ADJ_2 || i==OPTION_STATION_DELAY_TIME)
-    lcd_print_pgm(PSTR(" sec"));
+    lcd_print_pgm(PSTR(LANG_SEC));
 }
 
 

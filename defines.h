@@ -21,9 +21,12 @@
  * <http://www.gnu.org/licenses/>. 
  */
 
+#include "lang.h"
+
 #ifndef _DEFINES_H
 #define _DEFINES_H
 
+#define LANG_ES 		1 //spanish language
 #define MOD_DISCRETE // Use one pin per station instead of using shitf registers
 
 /** Firmware version, hardware version, and maximal values */

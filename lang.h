@@ -1,9 +1,9 @@
 #define LANG
 
-#ifdef LANG_SP
+#ifdef LANG_ES
 	#define 	LANG_FIRMWARE_VER	"Version sistema"
 	#define 	LANG_TIME_ZONE		"Zona horar. GMT:"
-	#define 	LANG_ENA_NTP_SYNC	"Hab. sinc. NTP?"
+	#define 	LANG_ENA_NTP_SYNC	"Habilitar NTP?"
 	#define 	LANG_ENA_DHCP		"Habilitar DHCP?"	
 	#define 	LANG_STA_IP1		"IP1 estatica:"
 	#define 	LANG_STA_IP2		"IP2 estatica:"
@@ -23,7 +23,7 @@
 	#define 	LANG_MASTER_1_OFF	"Maest. 1 deshab:"
 	#define 	LANG_RAIN_SENSOR	"Sensor lluvia:"
 	#define 	LANG_NORM_OPEN		"Normal/ abierto?"
-	#define 	LANG_WAT_LEVEL		"Nivel agua:"
+	#define 	LANG_WAT_LEVEL		"Nivel de regado:"
 	#define 	LANG_DEV_ENA		"Disp. hab.?"
 	#define 	LANG_IGN_PWD		"Ignorar passwd?"
 	#define 	LANG_DEV_ID			"ID dispositivo:"
@@ -43,7 +43,7 @@
 	#define 	LANG_FIRMWARE_MIN	"Ver firm. min.:"
 	#define 	LANG_PULSE_RATE		"Frec. pulso:"
 	#define 	LANG_AS_REM_EXT		"Como ext remota?"
-	#define 	LANG_FAC_RESET		"Val por defecto?"
+	#define 	LANG_FAC_RESET		"Reseteo de fab.?"
 	
 	#define 	LANG_MONDAY		"Lun\0"
 	#define 	LANG_TUESDAY	"Mar\0"

@@ -896,10 +896,10 @@ void OpenSprinkler::options_setup() {
     tmp_buffer[0]='V';
     tmp_buffer[1]='a';
     tmp_buffer[2]='l';
-		tmp_buffer[3]='v';
-		tmp_buffer[4]='u';
-		tmp_buffer[5]='l';
-		tmp_buffer[6]='a';
+    tmp_buffer[3]='v';
+    tmp_buffer[4]='u';
+    tmp_buffer[5]='l';
+    tmp_buffer[6]='a';
     tmp_buffer[9]=0;
     for(i=ADDR_NVM_STN_NAMES, sn=1; i<ADDR_NVM_MAS_OP; i+=STATION_NAME_SIZE, sn++) {
       tmp_buffer[7]='0'+(sn/10);

@@ -244,7 +244,7 @@ typedef enum {
   
   #define PIN_ETHER_CS       53    // Ethernet controller chip select pin
   #define PIN_SD_CS          0    // SD card chip select pin
-  #define PIN_RAINSENSOR    11    // rain sensor is connected to pin D3
+  #define PIN_RAINSENSOR    38    // rain sensor is connected to pin D3
   #define PIN_EXP_SENSE      4    // expansion board sensing pin (A4)
 
   // Ethernet buffer size
